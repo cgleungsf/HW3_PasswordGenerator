@@ -13,7 +13,9 @@ var splchar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", "|", 
 var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 var allChar = [];
-
+function updateTextInput(val) {
+  document.getElementById('sldrange').value=val; 
+}
 function generatePassword() {
   // check what check boxes have been clicked
   if (checkNum.checked === true) {
@@ -29,21 +31,23 @@ function generatePassword() {
     allChar.push(splchar)
   }
 
+  console.log(pwLength.value);
+
   for (var i = 0; i < pwLength.value; i++) {
     var passwordStr = "";
-    var randArrayNum = Math.floor(allChar.length * Math.random());
-    var randCharNum = Math.floor(allChar[randArrayNum].length * Math.random());
-    var randValue = allChar[randArrayNum][randCharNum];
-    
-    console.log (randValue);
-    passwordStr =passwordStr +  randValue;
-    console.log(pwLength.value);
+    var randArrayValue = Math.floor(allChar.length * Math.random());
+    var randCharValue = Math.floor(allChar[randArrayValue].length * Math.random());
+    var randValue = allChar[randArrayValue][randCharValue];
+
+
+    passwordStr += randValue;
+    console.log(passwordStr);
+    // console.log(typeof passwordStr);
+    // console.log(typeof randValue);
   }
-  // passwordEntry.textContent=passwordStr
- 
-  console.log(passwordStr);
   return passwordStr;
 }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -51,7 +55,6 @@ function writePassword() {
 
   ///makes document.querySelector("#password")
   passwordText.value = password;
-  console.log(passwordText.value);
 }
 
 // Add event listener to generate button
