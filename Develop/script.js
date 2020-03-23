@@ -13,6 +13,7 @@ var splchar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "{", "}", "|", 
 var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 var allChar = [];
+var passwordStr = "";
 function updateTextInput(val) {
   document.getElementById('sldrange').value=val; 
 }
@@ -31,19 +32,12 @@ function generatePassword() {
     allChar.push(splchar)
   }
 
-  console.log(pwLength.value);
-
   for (var i = 0; i < pwLength.value; i++) {
-    var passwordStr = "";
     var randArrayValue = Math.floor(allChar.length * Math.random());
     var randCharValue = Math.floor(allChar[randArrayValue].length * Math.random());
     var randValue = allChar[randArrayValue][randCharValue];
 
-
     passwordStr += randValue;
-    console.log(passwordStr);
-    // console.log(typeof passwordStr);
-    // console.log(typeof randValue);
   }
   return passwordStr;
 }
@@ -59,3 +53,14 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+function myFunction() {
+  var copyText = document.getElementById("password");
+
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+
+  document.execCommand("copy");
+
+  alert("Copied the text: " + copyText.value);
+}

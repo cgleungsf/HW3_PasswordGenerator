@@ -79,6 +79,7 @@ width: 30px;
   content: " ";
   display: block;
   clear: both;
+  text-align: center;
 }
 
 .btn {
@@ -96,7 +97,9 @@ width: 30px;
   text-align: center;
   cursor: pointer;
 }
-
+#copy{
+  background-color: grey;
+}
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
