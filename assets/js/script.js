@@ -15,9 +15,11 @@ var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var allChar = [];
 var passwordStr = "";
 function updateTextInput(val) {
-  document.getElementById('sldrange').value=val; 
+  document.getElementById('sldrange').value = val;
 }
+
 function generatePassword() {
+
   // check what check boxes have been clicked
   if (checkNum.checked === true) {
     allChar.push(num)
@@ -44,11 +46,17 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  if (pwLength.value < 129 && pwLength.value > 7) {
+    passwordStr = "";
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  ///makes document.querySelector("#password")
-  passwordText.value = password;
+    ///makes document.querySelector("#password")
+    passwordText.value = password;
+  }
+  else {
+    alert("Please enter a value between 8 and 128");
+  }
 }
 
 // Add event listener to generate button
@@ -56,11 +64,8 @@ generateBtn.addEventListener("click", writePassword);
 
 function myFunction() {
   var copyText = document.getElementById("password");
-
   copyText.select();
-  copyText.setSelectionRange(0, 99999); 
-
+  copyText.setSelectionRange(0, 99999);
   document.execCommand("copy");
-
   alert("Copied the text: " + copyText.value);
 }

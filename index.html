@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Password Generator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
@@ -21,7 +21,7 @@
       <div class="card-qualifier">
         <p>Please select how long and what characteristics you would like for yor password.</p>
         <input type="range" name="sldrange" min="8" max="128" onchange="updateTextInput(this.value);">
-        <input type="text" id="sldrange" value="">
+        <input type="text" id="sldrange" value="" min="8" max="128">
         <label for="sldrange">Number of Characters</label>
         <br />
         <input type="checkbox" id="lowercase" />
@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
